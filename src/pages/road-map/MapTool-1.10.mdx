@@ -1,0 +1,108 @@
+import { RoadMapEntry } from '../../components/road-map/RoadMapEntry';
+
+# MapTool Road Map
+Road map for future MapTool releases.
+
+
+
+## MapTool 1.10
+Changes that are planned for MapTool 1.10 (Early October Release)
+
+### New Features / Enhancements
+<RoadMapEntry summary="Player Specific Passwords" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2907, 2906, 2908, 2913] }}
+              blogPost={ {name: "Player Database", linkName: "player-databases"} }
+              completed>
+    Adds a password file that allows the GMs to specify which players can connect to the server and assign them specific passwords. 
+</RoadMapEntry>
+
+<RoadMapEntry summary="Add Public Key Authentication" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2907, 2915, 2916]} }
+              blogPost={ {name: "Player Database", linkName: "player-databases"} }
+              completed>
+    Allows players to connect and authenticate using a public key so that no passwords have to be stored or memorized.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Speech and Thought bubble improvements." 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2895]} }
+              blogPost={ {name: "Token Speech Bubbles", linkName: "token-speech-bubbles" } }
+              completed>
+    Add ability for the token under the mouse or impersonated tokens to override the name displayed in speech and thought bubbles.
+    Also fixes bug where text is rendered outside of thought or speech bubble if name is long.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Drawing Macro Function Improvements" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2899]} }
+              completed>
+    <ul>
+        <li>New macro function setDrawingName() to assign a name to a drawing by ID.</li>
+        <li>Extend findDrawings() to accept "*" for drawing name to get IDs for all drawings on map.</li>
+    </ul>
+</RoadMapEntry>
+
+<RoadMapEntry summary="Re-enable js.eval" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2519]} }
+              completed>
+    Re-enable js.eval() MTScript function as which was temporarily disabled in previous version.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Additional JavaScript functionality / Enhancements" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2519, 2961, 2960]} }
+              completed>
+    <ul>
+        <li>Javascript-based UDFs</li>
+        <li>Support multiple Javascript Scopes</li>
+        <li>Add js.evalURI() function that works with lib:// URIs</li>
+    </ul>
+</RoadMapEntry>
+
+<RoadMapEntry summary="FOW / Visibility performance improvements" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2951, 2948, 2934]} }
+              completed>
+    FOW / Visibility performance improvements
+</RoadMapEntry>
+
+<RoadMapEntry summary="Add Beta/Pilot Functionality for testing out WebRTC" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2943]} }
+              completed>
+    Add Beta / Pilot functionality to test connecting via WebRTC. WebRTC allows clients to connect to the server without requiring forwarding where UPNP is not working.
+    This functionality will be further incorporated in MapTool 1.11 or MapTool 1.12.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Ability to Access HTML/CSS/JavaScript on Lib:Tokens via URI" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2964, 2963, 2994]} }
+              blogPost={ {name: "Lib:Token URI", linkName: "lib-token-uri"} }
+              completed>
+    <ul>
+        <li>Improved macro support for HTML frame/dialog/overlay creation</li>
+        <li>Add a way for HTML Frame/Dialogs/Overlays to fetch CSS/JS from Lib: tokens</li>
+    </ul>
+</RoadMapEntry>
+
+<RoadMapEntry summary="additional getMapName changes" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2890]} }
+              completed>
+    if a display name is selected that is a duplicate. Tooltip updated to alert the player to this behavior within Map Properties Dialog. I'm unsure if it would've updated across the other languages that don't have translations yet so I manually dropped it there as well.
+</RoadMapEntry>
+
+### Bug Fixes
+<RoadMapEntry summary="Bug Fix: Macro Hotkeys don't work if all windows are hidden." 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [446]} }
+              completed>
+    with no docked frames, even if the campaign macros are visible, the hot keys will only trigger the said macro if a 'default' maptool frame 
+    is active (active meaning that the bar at the top of the frame is blue, or current). Custom frames cannot trigger this behavior and do not 
+    cause hotkeys to function when 'active'.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Bug Fix: RESTful functions do not allow headers except when passed as literal strings" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2875]} }
+              completed>
+    When adding headers to REST.* functions, the headers must be supplied as a string to the function call. Passing a variable or the results of JSON functions causes errors.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Bug Fix: Unexpected Error when add a Bar when not using English language" 
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [2861]} }
+              completed>
+    Adding bars was failing if the user was using a language other than English.
+</RoadMapEntry>
+

@@ -1,0 +1,58 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #e0081a;
+  --ifm-color-primary-dark: #ca0717;
+  --ifm-color-primary-darker: #be0716;
+  --ifm-color-primary-darkest: #9d0612;
+  --ifm-color-primary-light: #f6091d;
+  --ifm-color-primary-lighter: #f71427;
+  --ifm-color-primary-lightest :#f83646;
+  --ifm-code-font-size: 95%;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.github-issue-link ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.github-issue-link ul li {
+  display: inline;
+}
+
+.road-map-entry-description {
+  padding: 10px;
+}
+
+.road-map-entry {
+  background-color: #10AAA0;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.road-map-entry a:link {
+  color:palegreen
+}
+
+
+.road-map-entry a:visited {
+  color:rgb(153, 252, 153)
+}
