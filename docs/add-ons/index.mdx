@@ -19,21 +19,53 @@ menu item in file menu.
 This dialog can be used to add or remove add-on libraries, view the details of all add-ons
 in the campaign and view their license/read me files.
 
+### Drag and Drop
+As of MapTool 1.12, add-on libraries can be dragged and dropped on to the map from the file
+explorer / finder. This will either add the add-on library to the campaign or replace it
+if it is already in the campaign.
+
 
 
 ## Format of add-on library files
 Add-On libraries can be shared in a .mtlib file. This file is a zip file with a specific
 structure and content. You can import these libraries with the File -> Import Add-On Library menu option.
 
-```
-library.json            <-- Configuration information for the add-on library
-mts_properties.json     <-- Properties for macro script functions in library
-events.json             <-- Event definition for functions in the library
-library/                <-- Content of the library
-library/public          <-- Content of the library acessable via `lib:// URI`
-library/mtscript        <-- MTSCript files
-library/mtscript/public <-- MTSCript files that can be called via `[macro(): ]` outside of the library.
-```
+<table>
+  <tr>
+    <th>File / Directory name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>library.json</td>
+    <td>Configuration information for the add-on library</td>
+  </tr>
+  <tr>
+    <td>mts_properties.json</td>
+    <td>Properties for macro script functions in the add-on library</td>
+  </tr>
+  <tr>
+    <td>events.json</td>
+    <td>Events definition for events supported by the add-on library</td>
+  </tr>
+  <tr>
+    <td>library/</td>
+    <td>Contents of the add-on library</td>
+  </tr>
+  <tr>
+    <td>library/public/</td>
+    <td>Contents of the library that are accessible via <code>lib://</code> URI</td>
+  </tr>
+  <tr>
+    <td>library/mtscript/</td>
+    <td>Directory containing the macro Script files for the add-on library.</td>
+  </tr>
+  <tr>
+    <td>library/mtscript/public/</td>
+    <td>Directory containing the macro Script files that can be called via `[macro(): ]` outside of
+      the add-on library.
+    </td>
+  </tr>
+</table>
 
 
 ## format of the configuration file
@@ -51,23 +83,104 @@ The library.json configuration file is a json file with the following structure.
   "shortDescription": "test library",
   "allowsUriAccess": true,
   "readMeFile": "readme.md",
-  "licenseFile": "license.txt"
+  "licenseFile": "license.txt",
+  "requires": [
+      "net.rptools.maptool.lib.tokens"
+  ],
+  "exports": [
+      "/somedir/",
+      "/someotherdir/somefile.js"
+  ]
 }
 ```
 
 The properties in this file are
-* name - The name of the add-on
-* version - The version of the add-on, this should use semantic versioning if you want to take advantage of future functionality
-* website - A website for your add-on
-* gitUrl - the url for the git source repository.
-* authors - An array of the authors of the add-on.
-* license - Name or short description of the license.
-* namespace - The name of the add-on, you should use reverse hostname to ensure there are no conflicts.
-* description - The description of the add-on. 
-* shortDescription - The short description of the add-on.
-* allowsUriAccess - Whether to allow URI access to contents in the add-on.
-* readMeFile - path to the readme file for the add-on.
-* licenseFile - path to the license file for the add-on.
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td>The name of the add-on.</td>
+      <td>Yes</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>website</th>
+      <td>The website for your add-on.</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>gitUrl</th>
+      <td>The url for the git source repository.</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>authors</th>
+      <td>An array of the authors of the add-on.</td>
+      <td>Yes</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>license</th>
+      <td>The name or short description of the license.</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>namespace</th>
+      <td>The namespace of the add-on.</td>
+      <td>Yes</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td>The description of the add-on</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>shortDescription</th>
+      <td>The short description of the add-on</td>
+      <td>Yes</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>allowsUriAccess</th>
+      <td>Should add-on allow URI access to contents.</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>readMeFile</th>
+      <td>The path to the readme file for the add-on.</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>licenseFile</th>
+      <td>The path to the license file for the add-on.</td>
+      <td>No</td>
+      <td/>
+    </tr>
+    <tr>
+      <th>requires</th>
+      <td>An array of the add-ons that are required (namespaces)</td>
+      <td>No</td>
+      <td>Added in 1.13</td>
+    </tr>
+    <tr>
+      <th>exports</th>
+      <td>An array directories and files that are exported to other add-ons.</td>
+      <td>No</td>
+      <td>Added in 1.13</td>
+    </tr>
+  </table>
 
 ReadMe and License files can be plain text, HTML, or Markdown (GitHub Flavored). These can
 be viewed from the add-on dialog.
@@ -76,8 +189,8 @@ be viewed from the add-on dialog.
 
 :::note
 GitHub provides a way to host your own static site at &lt;username&gt;.github.io, if you do not have
-your own host this can be used for both your add-on webstite and reversed for namespace.
-There is no requirement fo there to be an actual website running at the address used for the namespace.
+your own host this can be used for both your add-on webstite and reversed for namespace, although
+there is no requirement fo there to be an actual website running at the address used for the namespace.
 :::
 
 ## format of the events configuration file
@@ -244,7 +357,7 @@ the simplest lib:tokens you will want edit the extracted data.
 
 ### Things you will want to change
 * You should probably change the namespace in the library.json file to something that is unlikely to
-conflict with other users. Its a good practice to use a reversed hostname + add on name for this.
+conflict with other users. It's a good practice to use a reversed hostname + add on name for this.
 * All macros (except event based ones) are created in mtscript/public with the pattern macro_{number>.mts, 
 this is because macro names have many things that might make them invalid -- or worse dangerous -- filenames.
 There is a macro_script_map.txt file saved in the top level which contains the names of your macros and the 
@@ -261,28 +374,13 @@ After doing the above you should *REALLY* take the opportunity to source control
 :::
 
 
-### Probably added/addressed in 1.12
+### Things still to be addressed.
 * There is only minimal checking of data when importing add-ons so error reporting is not great.
 * Expanding of JavaScript API which will make this much more useful will be part of another change.
-* Start of support for Add-Ons to to be able to replace "standard" functionality, first things wil be
-  * Add-On support for stat sheets (on mouseover on tokens)
-  * Add-On support for map selection UI
-* Way to create user defined functions through property file (so you dont have to call defineFunction in onInit)
+* Better replacement for user defined functions.
 * Providing an equivalent to lib:token buttons
-
-### Probably added/addressed in 1.13
 * Ability to check URL for later version and update from that (most likely github to start with)
 * Link Maps to required Add-Ons when exporting/importing
-* Dcoumentation / Procuedures for creating a GitHub release for your Add-On.
-* The data store could be slightly smatter about large text blocks that remain static and attempt to
+* Documentation / Procedures for creating a GitHub release for your Add-On.
+* The data store could be slightly smarter about large text blocks that remain static and attempt to
  cache them
-
-
-
-## Other miscellaneous stuff / insanity
-One thing to realise is this change allows serveral things that are not immediately obvious. For example,
-experiment with frame5/dialog5 and lib:// URI support and ability to store images, you would be surprised
-how close it is to devloping a standard web site. As a proof of concept I have even been able to get 
-a small React App written in TypeScript running realtively easily by using webpack to bundle it and copy
-it into the public directory. (Note the SVG for the beginner React app doesn't work correctly but 
-replacing it with a png works).

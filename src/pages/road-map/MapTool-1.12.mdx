@@ -1,0 +1,134 @@
+import { RoadMapEntry } from '../../components/road-map/RoadMapEntry';
+
+
+## MapTool 1.12
+Changes that are planned for MapTool 1.12
+
+### New Features / Enhancements
+
+<RoadMapEntry summary="Vision Improvements"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [
+                  3459, 3346, 3342, 3052, 3480, 3470, 3461
+              ] }}>
+  Improvements to visibility calculation for large and complex geometry
+  Allow darkness to affect Day vision
+  Light area calculation speed increase for many lights
+  Allow tokens to carry Hill and Pit VBL, just as they can carry Wall VBL
+  Improve darkness rendering
+  Improve rendering for sharp internal angles
+  Implement a sweeping algorithm for calculating visibility
+</RoadMapEntry>
+
+<RoadMapEntry summary="Edit Token Dialog VBL/MBL Improvements"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3360] }}>
+  Edit Token dialog updates for token VBL/MBL
+</RoadMapEntry>
+
+<RoadMapEntry summary="Implement Drag and Drop for Add-Ons"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3453] }}>
+  GMs can now drag and drop add-ons (.mtlib) files into MapTool to add or replace Add-Ons.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Move from Hessian to Protobuf"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3254] }}>
+  Move from Hessian to Protobuf for client/server communication to facilitate better security and
+  interoperability
+</RoadMapEntry>
+
+<RoadMapEntry summary="Update Connection Handshake"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3360] }}>
+  Upgrade handshake cipher to AES CBC
+</RoadMapEntry>
+
+
+<RoadMapEntry summary="Macro Commands to determine if running on server"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3465] }}>
+  Adds macro functions for determining if running on server or not
+</RoadMapEntry>
+
+
+<RoadMapEntry summary="Dependency upgrades"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [
+                  3286, 3501, 3399, 3398, 3331, 3400
+             ] }}>
+  Upgrade to Java 17
+  Upgrade to JavaFX 18 to fix crash on M1 Macs
+  Upgrade imageio libraries
+  Upgrade WebRTC libraries
+  Upgrade PDFBox libraries
+</RoadMapEntry>
+
+
+### Bug Fixes
+
+<RoadMapEntry summary="UVTT import fixes"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3440] }}>
+  Vision broken on clients when a UVTT map is imported after server start
+</RoadMapEntry>
+
+<RoadMapEntry summary="Unable to join servers with certain tokens present."
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3436] }}>
+  After starting a server with certain tokens present, players are unable to join the server and
+  are met with a black screen saying "Loading Campaign".
+</RoadMapEntry>
+
+<RoadMapEntry summary="Fixes for message issues"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [
+                  3350, 3311
+              ] }}>
+  Various VBL functions show a translation key instead of an error message when not provided enough parameters
+  Missing message for Player Already Connected
+</RoadMapEntry>
+
+<RoadMapEntry summary="Pathfinding errors"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3293] }}>
+  Pathfinding can send tokens through unexplored areas.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Hero Lab Tokens"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3274, 3285] }}>
+  Hero Lab token drag and drop from Library window onto map appears to be broken
+  Fix for Hero Lab tokens
+</RoadMapEntry>
+
+<RoadMapEntry summary="Edit Token Dialog"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3234] }}>
+  Token VBL carries from one token to another.
+</RoadMapEntry>
+
+<RoadMapEntry summary="Macros"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [3231] }}>
+  javascript UDFs receive json arguments as empty objects
+</RoadMapEntry>
+
+<RoadMapEntry summary="Startup errors"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [
+                  3218, 3425
+              ] }}>
+  Can't run MapTool via the JAR file due to log4j errors
+  MapTool hangs at splash-screen after macro import with unknown asset-link
+  Fix error keys for some VBL functions when too few parameters are provided
+</RoadMapEntry>
+
+<RoadMapEntry summary="Vision"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [
+                  1550, 3446, 3349, 3350
+                ] }}>
+  Strange lighting when coloured light sources overlap
+  Fix to invalidate the ZoneView.topologyAreas cache on topology changes
+  Calculate lights when map vision is set to Day or Off
+  Error when setting empty earlier retrieved VBL on Token
+</RoadMapEntry>
+
+
+<RoadMapEntry summary="Misc"
+              github={ {username: 'RPTools', repositoryName:'maptool', issueNumbers: [
+                  3101, 3340, 2348, 2763, 3334, 3359, 3462
+              ] }}>
+  Grid color resets after Server start
+  Connected players can't turn off tools in full screen mode
+  --pointermap CSS does not permit whitespace
+  Addons - Inconsistent onInit Functionality
+  Fix for Using addons wont allow players to connect
+  Fixes bug where player.getName() fails for player on the server if player database is not being used
+</RoadMapEntry>
