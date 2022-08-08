@@ -20,7 +20,8 @@ interface RoadMapEntryProps {
         username: string;
         repositoryName: string;
         issueNumbers: number[];
-    }
+    },
+    children: any
 }
 
 export const RoadMapEntry: FunctionComponent<RoadMapEntryProps> = ({ summary, blogPost, docPage, github, children, completed }) => (

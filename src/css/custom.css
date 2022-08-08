@@ -6,13 +6,13 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #e0081a;
-  --ifm-color-primary-dark: #ca0717;
-  --ifm-color-primary-darker: #be0716;
-  --ifm-color-primary-darkest: #9d0612;
-  --ifm-color-primary-light: #f6091d;
-  --ifm-color-primary-lighter: #f71427;
-  --ifm-color-primary-lightest :#f83646;
+  --ifm-color-primary: #C02739;
+  --ifm-color-primary-dark: #C02739;
+  --ifm-color-primary-darker: #84142D;
+  --ifm-color-primary-darkest: #54123B;
+  --ifm-color-primary-light: #84142D;
+  --ifm-color-primary-lighter: #C02739;
+  --ifm-color-primary-lightest :#C02739;
   --ifm-code-font-size: 95%;
 }
 
@@ -49,10 +49,42 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .road-map-entry a:link {
-  color:palegreen
+  color: #29C7AC
 }
 
 
 .road-map-entry a:visited {
   color:rgb(153, 252, 153)
+}
+
+.mt-script-function {
+  background-color: #45485D;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.mt-script-function-usage div {
+  display: inline-block;
+}
+
+.mt-script-function-usage .heading {
+  font-weight: bold;
+  padding-right: 2em;
+}
+
+.mt-script-function-usage .mt-script-param-name {
+  font-style: italic;
+  padding-right: .5em;
+  padding-left: .5em;
+}
+
+.mt-script-function-parameters div {
+  display: inline-block;
+}
+
+.mt-script-function-parameters .heading {
+  font-weight: bold;
+  padding-left: 2em;
+  padding-right: 2em;
 }
