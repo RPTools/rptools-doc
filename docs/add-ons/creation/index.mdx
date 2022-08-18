@@ -199,7 +199,9 @@ This json file contains which files should be run for certain events.
 {
    "events": [
       { "name": "onFirstInit", "mts": "onFirstInit" },
-      { "name": "onInit", "mts": "onInit"}
+      { "name": "onInit", "mts": "onInit"},
+      { "name": "onFirstInit", "js": "/js/onFirstInit" },
+      { "name": "onInit", "js": "/js/onInit"}
    ],
    "legacyEvents": [
       { "name": "onInitiativeChangeRequest", "mts": "onInitiativeChangeRequest" },
@@ -214,6 +216,10 @@ Add ons do not respond to the "onCampaignLoad" event, instead they have 2 new ev
 overwriting the existing one it will *not* be called again unless the add-on is removed first.
 * onInit - This is called every time the campaign is loaded (including after the inital onFirstInit event), and 
 on the client when sent to a client. This functionality is very much similar to onCampaignLoad.
+
+As of 1.13, the "onFirstInit" and "onInit" events are can specify a JavaScript file to run. Unlike
+the MTS script you must specify the full path to the file. If you have an entry for both a MTS and a
+JavaScript script, the JavaScript script will be run first.
 
 The other events must be in the "legacyEvents" section, as the name implies these events are now considered to 
 be legacy events, new events will be added in the future to replace these (these will not be removed though).

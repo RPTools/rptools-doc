@@ -1,0 +1,11 @@
+# JavaScript
+:::note
+This Page describes functionality that will be available in MapTool 1.13
+:::
+
+
+## JavaScript Context
+A JavaScript context is created for an Add-On, to isolate the JavaScript environment from other
+Add-Ons. This context is not persisted across sessions or clients. It is destroyed when the Add-On
+is removed, and recreated when the Add-On is updated. The 'onInit' event for the Add-On should
+be used to create any JavaScript objects that need to be created on startup of the Add-On
