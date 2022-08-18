@@ -58,7 +58,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .mt-script-function {
-  background-color: #45485D;
+  background-color: var(--ifm-color-info-darkest);
+  color: var(--ifm-color-secondary);
   border-radius: 25px;
   padding: 20px;
   margin: 20px;
