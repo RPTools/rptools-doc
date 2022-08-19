@@ -65,6 +65,11 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   margin: 20px;
 }
 
+
+.mt-script-function  code {
+  color: var(--ifm-color-content);
+  background-color: var(--ifm-background-surface-color);
+}
 .mt-script-function-usage div {
   display: inline-block;
 }
