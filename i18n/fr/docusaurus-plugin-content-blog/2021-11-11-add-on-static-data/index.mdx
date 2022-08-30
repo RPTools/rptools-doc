@@ -1,0 +1,27 @@
+---
+slug: add-on-libraries-static-data
+title: MapTool Add-On Libraries and Static Data
+authors:
+  - craigw
+tags:
+  - MapTool
+  - MapTool 1.11
+  - Libraries
+---
+
+:::caution This post describes a work in progress so details may change due to feedback. This is also the reason that the documentation is a bit sparse. Before creating any issues check the bottom of the post for things still to be implemented. These features required a *HUGE* amount of behind the scene changes to how events, lib:tokens, and Assets work, so there will be a large amount of testing that needs to be done, I am expecting that there are still several bugs that I have not been able to uncover yet with my testing. Any help testing would be grealy appreciated.
+
+It should go without sayind please don't run your games with this yet. :::
+
+## Retrieving static data from Add-Ons
+You can retrieve the static data that is zipped up in an add-on with the following macro script function.
+
+```
+data.getStaticData(namespace, path)
+```
+
+If this macro function is run from the add-on then it is able to retrieve any file that is in the add-on.
+
+If the macro function run from ouside of the add-on then it is only able to retrieve files in the public/ directory and only if the Allow URI Access flag is set.
+
+If the path does not exist in the add-on (or a macro tries to read a file that is not in the public/ directory when not run from the add-on) then an empty string will be returned.
