@@ -1,0 +1,133 @@
+---
+slug: add-on-libraries-old
+title: MapTool Add-On Libraries (Old)
+authors:
+  - craigw
+tags:
+  - MapTool
+  - MapTool 1.11
+  - Libraries
+---
+
+**Note:** This post describes a work in progress so details may change due to feedback. This is also the reason that the documentation is a bit sparse. Before creating any issues check the bottom of the post for things still to be implemented. Also the current code doesn't do much checking for the format of the config/property files this will be improved.
+
+
+# Add-On Libraries
+MapTool 1.11 introduces add-on libraries which are intended to be an easier to work with replacement for Lib:Tokens while also offering a lot more functionality. Lib:Tokens will still function the way that they currently do in MapTool 1.11 and future versions, but will not be getting a lot of the new features that add-on libraries will have, so it is recommended that framework developers transition to add-on libraries if supporting MapTool 1.11 and above.
+
+I have a very sparse and contrived add-on library I have been using for testing available at [test-maptool-add-on-lib](https://github.com/cwisniew/test-maptool-add-on-lib)
+
+
+## Format of add-on library files
+Add-On libraries can be shared in a .mtlib file. This file is a zip file with a specific structure and content. You can import these libraries with the File -> Import Add-On Library menu option.
+
+```
+library.json            <-- Configuration information for the add-on library
+mts_properties.json     <-- Properties for macro script functions in library
+library/                <-- Content of the library
+library/public          <-- Content of the library acessable via `lib:// URI`
+library/mtscript        <-- MTSCript files
+library/mtscript/public <-- MTSCript files that can be called via `[macro(): ]` outside of the library.
+```
+
+* library/public is only exposed via lib:// URI if `allowsUriAccess` is set (see configuration file)
+* MTScript macros must all end with the file extension .mts to be recognised.
+* Only MTScript files in `content/mtscript/public` can be called using `[macro():]` from outside of the add-on
+
+## format of the configuration file
+The library.json configuration file is a json file with the following structure.
+```json
+{
+  "name": "test-library",
+  "version": "1.0.0",
+  "website": "www.rptools.net",
+  "gitUrl": "github.com/RPTools/test-library",
+  "authors": [ "RPTools Team" ],
+  "license": "GPL 3.0",
+  "namespace": "net.rptools.maptool.test-library",
+  "description": "My new test library for stuff",
+  "shortDescription": "test library",
+  "allowsUriAccess": true
+}
+```
+
+
+
+## MTScript macros
+The name of the file becomes that macroname for `[macro(): ]` the namespace of the add-on library is used for the `@` portion.  For example:
+
+Add-On libraries support both public and private macro functions. Public macro functions must reside in the mtscript/public and can be called from anywhere (chat, other add-ons, lib:tokens, macro buttons). You can call them using the following syntax `[macro("mtscript1@net.rptools.maptool.test-library")]` executes MTScript macro in the file `content/mtscript/public/mtscript1.mts`. :::note
+The "public/" is ommited from the macro name when calling it.
+You can also use subdirectories to organise your macros and would call them like 
+[macro("subdir/script@net.rptools.maptool.test-library")]
+:::
+
+The `@this` shorthand can also be used for calling a macro from within the same add-on, similar to how it works for lib:Tokens. For example `[macro("mtscript2@this")]`
+
+
+Macro script files that are not in the "public/" directory can only be called from within the add-on itself. Given a library with the namespace `net.mylib.addon` with the following files.
+```
+mtsscript/func1.mts
+mtsscript/public/func2.mts
+```
+
+`[macro("func1@net.mylib.addon")]` can be called from anywhere, but `[macro("func2@net.mylib.addon")]` can only be called from a macro that is on the `net.mylib.addon` add-on.
+
+:::note Since the "public/" is not required, if you have to files with the same name excluding the "public/" part, for example mtscript/public/funct1.mts mtscript/funct1.mts
+
+Then only the one in public/ will be able to be executed, you will not be able to call the other macro :::
+
+
+The above works not just with ```[macro():]``  but the other places you would expect it to as well such as defineFunction() for user defined functions and macro links.
+
+### mts_properties.json file
+The mts_properties.json file contains property information about macro scripts, it is not required and currrently only allows you to set properties used in macro links.
+
+```json
+{ 
+  "properties": [ 
+    {
+      "filename": "public/auto_exec.mts",
+      "autoExecute": true,
+      "description": "Auto executable macro link"
+    },
+    {
+      "filename": "public/myUDF.mts",
+      "description": "My Test UDF in a drop in lib."
+    }
+  ]
+}
+```
+
+Where
+* filename is the path of the file for the MacroScript function (excluding mtscript/).
+* autoExecute determines if a macro link created for this macro will be auto executable or not.
+* description is the description that will appear in the UDF listing, unlike Lib:Token this is just a plain string and not evaluated if it contains `[]`
+
+
+
+## public/ directory
+The contents of this directory are exposed as a lib:// URI  as long as the allowsUriAccess is set to true in the configuration file. The public directory part of the filename is discared, for example public/myhttml.html -> lib://net.myaddons.addon1/myhtml.html
+
+You an add images to this directory and use src="lib://" in image tags in HTML. It will eventually work with audio (probably aleady does but I haven't tested it yet so not claining it will yet :) )
+
+
+## New MTScript functions
+* library.listAddOnLibraries()            Lists the add on libraries
+* library.getInfo(namespace)              Gets information about a library (either add on or lib:token)
+* library.listTokenLibraries(namespace)   Lists the Lib:tokens in the campaign
+* library.getContents(namespace)          Lists the contents of a library (trusted)
+* library.removeAddOn(namepsace)          Removes an add-on (trusted) (used for testing only, probably wont make it into release)
+* library.removeAllAddOns()               Removes all add-ons (trusted) (used for testing only, probably wont make it into release)
+
+
+## Things not yet implemented but will be (so dont create issues for these or I will just close them)
+* libProperty acces, including listing, setting, gettting
+* No UI yet
+* No onCampaignLoad etc events yet.
+* There is currenlty no way to access files not in public/ or mtscript/
+* Many file types like text/markdown etc are allowed in the library but the functions to use them dont yet exist
+* Expanding of JavaScript API which will make this much more useful will be part of another change.
+
+
+
