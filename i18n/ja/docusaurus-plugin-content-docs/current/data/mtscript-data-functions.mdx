@@ -1,0 +1,35 @@
+# MTScript Data Functions
+
+import { MTScriptFunction } from "/src/components/mtscript-function/MTScriptFunction";
+
+
+The following functions have been added to MapTool Macro Script to work with data. Currently, the only type of data stored is for Add-Ons, but this will be expanded in the future.<MTScriptFunction name="data.getStaticData" parameters={[
+                    { name: "namespace", description: "the namespace of the Add-On that data is stored in" }, "path", "The path to file in Add-On" ]} mark =crwd-mark> If called from within code in the add-on then it will be able to access any file, otherwise it will only be able to access the files in the public/ directory. This can be used to access text files, JSON, or even images within the add-on. Images are returned in the asset:// format so they can be used in image tags. <br/> Example ```[r: data.getStaticData("com.example.myaddon", "mydir/myfile.txt")]``` </MTScriptFunction>
+
+<MTScriptFunction name="data.listTypes">
+  <p>Lists the type of Data available.</p>
+  <p>Currently the only type is "addon:" but this will change in the future</p>
+</MTScriptFunction>
+
+<MTScriptFunction name="data.listNamespaces"
+                  parameters={[
+                    {
+ name: "type",
+ description: "The type of data to list",
+ },
+ ]}>
+  Returns a list of namespaces for the given data type.
+  <br/>
+  Example
+
+  ```[r: data.listNamespaces("addon:")]```
+
+</MTScriptFunction>
+
+<MTScriptFunction name="data.listData" parameters={[
+                    { name: "type", description: "The type of data to list", }, "namespace", namespace the set", ]} mark =crwd-mark> Returns a list of the data in the given namespace. <br/> Example ```[r: data.listData("addon:", "com.example.myaddon")]``` </MTScriptFunction> <MTScriptFunction name parameters={[
+                    { name: "type", description: "The type of data to set", }, "namespace", namespace the "name", variable "value", value ]} mark =crwd-mark> Sets the data to the specified value. <br/> Example ```[r: data.setData("addon:", "com.example.myaddon", "myVar", 1 )]``` Things to note: * Unlike token properties data variables have a type (number, string, json etc), once set the type cannot be changed. * No conversion to/from string is required for JSON values so they are a lot faster than token and lib:token properties. * This data is shared between clients and persisted in the campaign just as token and lib:token properties are. </MTScriptFunction> <MTScriptFunction name parameters={[
+                    { name: "type", description: "The type of data to get", }, "namespace", namespace the "name", variable ]} mark =crwd-mark> Returns the specified data <br/> Example ```[r: data.getData("addon:", "com.example.myaddon", "myVar")]``` Things to note: * Unlike token properties data variables have a type (number, string, json etc), once set the type cannot be changed. * No conversion to/from string is required for JSON values so they are a lot faster than token and lib:token properties. * This data is shared between clients and persisted in the campaign just as token and lib:token properties are. </MTScriptFunction> <MTScriptFunction name parameters={[
+                    { name: "type", description: "The type of data to remove", }, "namespace", namespace the "name", variable ]} mark =crwd-mark> Removes the specified data <br/> Example ```[r: data.removeData("addon:", "com.example.myaddon", "myVar")]``` Things to note: * This data is shared between clients and persisted in the campaign just as token and lib:token properties are. </MTScriptFunction>
+
+

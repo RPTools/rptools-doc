@@ -1,0 +1,43 @@
+# MTScript Library functions
+import { MTScriptFunction } from "/src/components/mtscript-function/MTScriptFunction";
+
+The following functions have been added to MapTool Macro Script to work with libraries.
+
+<MTScriptFunction name="library.listAddOnLibraries">
+  List the Add-On Libraries in the current Campaign.
+</MTScriptFunction>
+
+<MTScriptFunction name="library.getInfo"
+                  parameters={[
+                    {
+ name: "namespace",
+ description: "The namespace of the library"
+ },
+ ]}>
+  Returns the information about a library (either Add-On or Lib:Token)
+</MTScriptFunction>
+
+<MTScriptFunction name="library.listTokenLibraries">
+  Lists the Lib:Tokens in the Campaign
+</MTScriptFunction>
+
+<MTScriptFunction name="library.getContents"
+                  parameters={[
+                    {
+ name: "namespace",
+ description: "The namespace of the library"
+ },
+ ]}>
+  Lists the contents of a library
+</MTScriptFunction>
+
+## Add-On Libraries and Data
+As Add Ons do not live on a token there are no token properties for them. Instead, there has been a new area created for storing data that is a lot more flexible -- and will allow data to be stored against other entities like maps in the future.
+
+For backwards compatibility the existing lib property functions below have been modified to work with this new data store if called with an add-on as the target.
+* setLibProperty()
+* getLibProperty()
+* getLibPropertyNames()
+* getMatchingLibProperties()
+
+For new development it is recommended to use the new data functions for storage rather than the above compatibility functions as they give you greater flexibility in defining what type the data should be (e.g. string, number, JSON, etc). See [MTScript Data Functions](../data/)
