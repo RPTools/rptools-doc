@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrptools_doc=self.webpackChunkrptools_doc||[]).push([[86],{18776:o=>{o.exports=JSON.parse('{"label":"MapTool","permalink":"/ru/blog/tags/map-tool","allTagsPath":"/ru/blog/tags","count":6}')}}]);

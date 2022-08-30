@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrptools_doc=self.webpackChunkrptools_doc||[]).push([[3453],{68681:s=>{s.exports=JSON.parse('{"label":"lib:tokens","permalink":"/pt-BR/blog/tags/lib-tokens","allTagsPath":"/pt-BR/blog/tags","count":1}')}}]);

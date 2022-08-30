@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost:3000/docs/networking/authentication -->
+<html lang="en" data-theme="light" class="docs-version-current" dir="ltr" data-react-helmet="class,lang,dir"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style type="text/css">.q-plugin .sho-header button.sho-close-button svg {
+  vertical-align: middle; }
+
+.q-plugin .sho-header button.sho-close-button {
+  background-color: white;
+  border: none;
+  min-width: 0;
+  height: 22px !important;
+  min-height: 22px !important;
+  cursor: pointer;
+  padding: 0; }
+  .q-plugin .sho-header button.sho-close-button:hover {
+    background-color: white !important; }
+</style><style type="text/css">@font-face {
+  font-family: "Ciutadella-Regular";
+  src: url("https://shopping.qantas.com/static/fonts/Ciutadella-Regular.woff") format("woff"); }
+
+.q-plugin {
+  max-width: 250px;
+  box-shadow: 0 3px 16px 0 #00000019, 0 2px 4px 0 #00000019;
+  font: 400 11px "Ciutadella-Regular", Helvetica !important;
+  letter-spacing: 0;
+  color: #323232;
+  background-color: #ffffff; }
+  .q-plugin a, .q-plugin button {
+    all: unset; }
+  .q-plugin .sho-header {
+    background-color: #ffffff;
+    padding: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative; }
+    .q-plugin .sho-header .sho-user-pod {
+      text-align: right; }
+      .q-plugin .sho-header .sho-user-pod p {
+        font: 400 12px "Ciutadella-Regular", Helvetica !important;
+        margin: 0;
+        line-height: 13px; }
+      .q-plugin .sho-header .sho-user-pod a {
+        cursor: pointer;
+        font: 400 12px "Ciutadella-Regular", Helvetica !important;
+        text-decoration: underline; }
+  .q-plugin footer {
+    height: 36px;
+    margin-top: 1px;
+    display: flex; }
+    .q-plugin footer :first-child {
+      margin-right: 1px; }
+    .q-plugin footer a {
+      background-color: #f1f1f1;
+      width: 50%;
+      text-decoration: underline;
+      font: 400 13px "Ciutadella-Regular", Helvetica !important;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      cursor: pointer; }
+  .q-plugin .sho-main {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 0;
+    margin: 0; }
+    .q-plugin .sho-main p.sho-title {
+      text-align: center;
+      font: 400 14px "Ciutadella-Regular", Helvetica !important;
+      padding: 0 20px 10px 20px;
+      margin: 0;
+      letter-spacing: 0;
+      color: #323232; }
+      .q-plugin .sho-main p.sho-title strong {
+        font: 600 15px "Ciutadella-Regular", Helvetica !important;
+        letter-spacing: 0;
+        color: #323232; }
+
+.q-plugin button.sho-button {
+  font: 400 14px "Ciutadella-Regular", Helvetica !important;
+  letter-spacing: 0.5px;
+  text-align: center;
+  min-width: 195px;
+  max-width: fit-content;
+  max-width: -moz-max-content;
+  min-height: 40px !important;
+  height: 40px !important;
+  border-radius: 3px;
+  background-color: #e40000;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+  border: none !important;
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+  box-shadow: none; }
+  .q-plugin button.sho-button:hover {
+    background-color: #e40000; }
+  .q-plugin button.sho-button:before {
+    content: none; }
+  .q-plugin button.sho-button svg {
+    margin-right: 4px;
+    vertical-align: middle; }
+
+.q-plugin button.sho-success {
+  background-color: #66aa4f; }
+  .q-plugin button.sho-success:hover {
+    background-color: #66aa4f; }
+
+.q-plugin button.suboptimal {
+  cursor: not-allowed;
+  background-color: #dadada;
+  color: #555555; }
+  .q-plugin button.suboptimal:hover {
+    background-color: #dadada;
+    color: #555555; }
+</style><style type="text/css">@font-face {
+  font-family: "Ciutadella-Regular";
+  src: url("https://shopping.qantas.com/static/fonts/Ciutadella-Regular.woff") format("woff"); }
+
+.q-plugin {
+  max-width: 250px;
+  box-shadow: 0 3px 16px 0 #00000019, 0 2px 4px 0 #00000019;
+  font: 400 11px "Ciutadella-Regular", Helvetica !important;
+  letter-spacing: 0;
+  color: #323232;
+  background-color: #ffffff; }
+  .q-plugin a, .q-plugin button {
+    all: unset; }
+  .q-plugin .sho-header {
+    background-color: #ffffff;
+    padding: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative; }
+    .q-plugin .sho-header .sho-user-pod {
+      text-align: right; }
+      .q-plugin .sho-header .sho-user-pod p {
+        font: 400 12px "Ciutadella-Regular", Helvetica !important;
+        margin: 0;
+        line-height: 13px; }
+      .q-plugin .sho-header .sho-user-pod a {
+        cursor: pointer;
+        font: 400 12px "Ciutadella-Regular", Helvetica !important;
+        text-decoration: underline; }
+  .q-plugin footer {
+    height: 36px;
+    margin-top: 1px;
+    display: flex; }
+    .q-plugin footer :first-child {
+      margin-right: 1px; }
+    .q-plugin footer a {
+      background-color: #f1f1f1;
+      width: 50%;
+      text-decoration: underline;
+      font: 400 13px "Ciutadella-Regular", Helvetica !important;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      cursor: pointer; }
+  .q-plugin .sho-main {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 0;
+    margin: 0; }
+    .q-plugin .sho-main p.sho-title {
+      text-align: center;
+      font: 400 14px "Ciutadella-Regular", Helvetica !important;
+      padding: 0 20px 10px 20px;
+      margin: 0;
+      letter-spacing: 0;
+      color: #323232; }
+      .q-plugin .sho-main p.sho-title strong {
+        font: 600 15px "Ciutadella-Regular", Helvetica !important;
+        letter-spacing: 0;
+        color: #323232; }
+
+.q-plugin .sho-hidden {
+  display: none;
+  height: 0; }
+
+.q-plugin .sho-terms {
+  background-color: #ffffff; }
+  .q-plugin .sho-terms a {
+    padding-bottom: 18px !important;
+    display: block;
+    cursor: pointer;
+    text-decoration: underline !important;
+    font: 400 12px "Ciutadella-Regular", Helvetica !important;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #555555 !important; }
+    .q-plugin .sho-terms a:hover {
+      border: none; }
+  .q-plugin .sho-terms p {
+    text-align: left;
+    font: 400 12px "Ciutadella-Regular", Helvetica !important;
+    line-height: 1.42;
+    letter-spacing: normal;
+    color: #555555; }
+
+.q-plugin .sho-terms-details {
+  background-color: #f1f1f1;
+  padding: 15px; }
+  .q-plugin .sho-terms-details p {
+    color: #323232;
+    margin: 0;
+    padding: 0; }
+  .q-plugin .sho-terms-details p.sho-terms-details-title {
+    display: flex; }
+    .q-plugin .sho-terms-details p.sho-terms-details-title .sho-tc-close {
+      font: 400 11px "Ciutadella-Regular", Helvetica !important;
+      margin-left: auto; }
+    .q-plugin .sho-terms-details p.sho-terms-details-title strong {
+      color: #323232;
+      display: inline;
+      font: 600 13px "Ciutadella-Regular", Helvetica !important; }
+
+.q-plugin .sho-terms-details-text {
+  height: 155px;
+  overflow-y: scroll; }
+</style><style type="text/css">@font-face {
+  font-family: "Ciutadella-Regular";
+  src: url("https://shopping.qantas.com/static/fonts/Ciutadella-Regular.woff") format("woff"); }
+
+.q-plugin {
+  max-width: 250px;
+  box-shadow: 0 3px 16px 0 #00000019, 0 2px 4px 0 #00000019;
+  font: 400 11px "Ciutadella-Regular", Helvetica !important;
+  letter-spacing: 0;
+  color: #323232;
+  background-color: #ffffff; }
+  .q-plugin a, .q-plugin button {
+    all: unset; }
+  .q-plugin .sho-header {
+    background-color: #ffffff;
+    padding: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative; }
+    .q-plugin .sho-header .sho-user-pod {
+      text-align: right; }
+      .q-plugin .sho-header .sho-user-pod p {
+        font: 400 12px "Ciutadella-Regular", Helvetica !important;
+        margin: 0;
+        line-height: 13px; }
+      .q-plugin .sho-header .sho-user-pod a {
+        cursor: pointer;
+        font: 400 12px "Ciutadella-Regular", Helvetica !important;
+        text-decoration: underline; }
+  .q-plugin footer {
+    height: 36px;
+    margin-top: 1px;
+    display: flex; }
+    .q-plugin footer :first-child {
+      margin-right: 1px; }
+    .q-plugin footer a {
+      background-color: #f1f1f1;
+      width: 50%;
+      text-decoration: underline;
+      font: 400 13px "Ciutadella-Regular", Helvetica !important;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      cursor: pointer; }
+  .q-plugin .sho-main {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 0;
+    margin: 0; }
+    .q-plugin .sho-main p.sho-title {
+      text-align: center;
+      font: 400 14px "Ciutadella-Regular", Helvetica !important;
+      padding: 0 20px 10px 20px;
+      margin: 0;
+      letter-spacing: 0;
+      color: #323232; }
+      .q-plugin .sho-main p.sho-title strong {
+        font: 600 15px "Ciutadella-Regular", Helvetica !important;
+        letter-spacing: 0;
+        color: #323232; }
+</style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Docusaurus">
+    <title>authentication | My RPTools Developer Ramblings...</title>
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:3000/blog/rss.xml" title="My RPTools Developer Ramblings... Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="http://localhost:3000/blog/atom.xml" title="My RPTools Developer Ramblings... Blog Atom Feed">
+    <script defer="" src="./authentication _ My RPTools Developer Ramblings..._files/runtime_main.js.download"></script><script defer="" src="./authentication _ My RPTools Developer Ramblings..._files/main.js.download"></script><link href="./authentication _ My RPTools Developer Ramblings..._files/styles.css" rel="stylesheet">
+  <link rel="shortcut icon" href="http://localhost:3000/img/favicon.ico" data-react-helmet="true"><link rel="canonical" href="https://rptools-dev-doc.netlify.app//docs/networking/authentication" data-react-helmet="true"><link rel="alternate" href="https://rptools-dev-doc.netlify.app//docs/networking/authentication" hreflang="en" data-react-helmet="true"><link rel="alternate" href="https://rptools-dev-doc.netlify.app//docs/networking/authentication" hreflang="x-default" data-react-helmet="true"><meta name="twitter:card" content="summary_large_image" data-react-helmet="true"><meta property="og:url" content="https://rptools-dev-doc.netlify.app//docs/networking/authentication" data-react-helmet="true"><meta name="docusaurus_locale" content="en" data-react-helmet="true"><meta name="docusaurus_version" content="current" data-react-helmet="true"><meta name="docusaurus_tag" content="docs-default-current" data-react-helmet="true"><meta property="og:title" content="authentication | My RPTools Developer Ramblings..." data-react-helmet="true"><meta name="description" content="`mermaid" data-react-helmet="true"><meta property="og:description" content="`mermaid" data-react-helmet="true"><link rel="prefetch" href="http://localhost:3000/component---theme-doc-page-1-be-9be.js"><link rel="prefetch" href="http://localhost:3000/versionMetadata---docs-935-398.js"><link rel="prefetch" href="http://localhost:3000/component---theme-doc-item-178-a40.js"><link rel="prefetch" href="http://localhost:3000/content---docs-intro-0-e-3-be1.js"><link rel="prefetch" href="http://localhost:3000/component---theme-blog-list-pagea-6-a-7ba.js"><link rel="prefetch" href="http://localhost:3000/sidebar---blog-814-8ac.js"><link rel="prefetch" href="http://localhost:3000/content---blog-071-bf6.js"><link rel="prefetch" href="http://localhost:3000/metadata---blogb-2-b-df1.js"><link rel="prefetch" href="http://localhost:3000/component---site-src-pages-index-tsx-1-df-d3e.js"><link rel="prefetch" href="http://localhost:3000/config---5-e-9-4f3.js"><link rel="prefetch" href="http://localhost:3000/component---theme-doc-page-1-be-9be.js"><link rel="prefetch" href="http://localhost:3000/versionMetadata---docs-935-398.js"><link rel="prefetch" href="http://localhost:3000/component---theme-doc-item-178-a40.js"><link rel="prefetch" href="http://localhost:3000/content---docs-networking-authentication-49-f-2ca.js"></head>
+  <body>
+    <script>
+(function() {
+  var defaultMode = 'light';
+  var respectPrefersColorScheme = false;
+
+  function setDataThemeAttribute(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  function getStoredTheme() {
+    var theme = null;
+    try {
+      theme = localStorage.getItem('theme');
+    } catch (err) {}
+    return theme;
+  }
+
+  var storedTheme = getStoredTheme();
+  if (storedTheme !== null) {
+    setDataThemeAttribute(storedTheme);
+  } else {
+    if (
+      respectPrefersColorScheme &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      setDataThemeAttribute('dark');
+    } else if (
+      respectPrefersColorScheme &&
+      window.matchMedia('(prefers-color-scheme: light)').matches
+    ) {
+      setDataThemeAttribute('light');
+    } else {
+      setDataThemeAttribute(defaultMode === 'dark' ? 'dark' : 'light');
+    }
+  }
+})();
+
+            </script>
+    <div id="__docusaurus"><div><a href="http://localhost:3000/docs/networking/authentication#" class="skipToContent_node_modules-@docusaurus-theme-classic-lib-next-theme-SkipToContent-styles-module">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="http://localhost:3000/"><img src="./authentication _ My RPTools Developer Ramblings..._files/RPTools_Logo_512.png" alt="RPTools Logo" class="themedImage_node_modules-@docusaurus-theme-classic-lib-next-theme-ThemedImage-styles-module themedImage--light_node_modules-@docusaurus-theme-classic-lib-next-theme-ThemedImage-styles-module navbar__logo"><b class="navbar__title">My RPTools Developer ramblings...</b></a><a class="navbar__item navbar__link navbar__link--active" href="http://localhost:3000/docs/intro">Documentation</a><a class="navbar__item navbar__link" href="http://localhost:3000/blog">Blog</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/cwisniew/rptools-dev-doc" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a><div class="react-toggle toggle_node_modules-@docusaurus-theme-classic-lib-next-theme-Navbar-styles-module"><div class="react-toggle-track" role="button" tabindex="-1"><div class="react-toggle-track-check"><span class="toggle_node_modules-@docusaurus-theme-classic-lib-next-theme-Toggle-styles-module">🌜</span></div><div class="react-toggle-track-x"><span class="toggle_node_modules-@docusaurus-theme-classic-lib-next-theme-Toggle-styles-module">🌞</span></div><div class="react-toggle-thumb"></div></div><input type="checkbox" class="react-toggle-screenreader-only" aria-label="Switch between dark and light mode"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper docs-wrapper docs-doc-page"><div class="docPage_node_modules-@docusaurus-theme-classic-lib-next-theme-DocPage-styles-module"><button class="clean-btn backToTopButton_node_modules-@docusaurus-theme-classic-lib-next-theme-BackToTopButton-styles-module" type="button"><svg viewBox="0 0 24 24" width="28"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"></path></svg></button><aside class="docSidebarContainer_node_modules-@docusaurus-theme-classic-lib-next-theme-DocPage-styles-module"><div class="sidebar_node_modules-@docusaurus-theme-classic-lib-next-theme-DocSidebar-styles-module"><nav class="menu thin-scrollbar menu_node_modules-@docusaurus-theme-classic-lib-next-theme-DocSidebar-styles-module menuWithAnnouncementBar_node_modules-@docusaurus-theme-classic-lib-next-theme-DocSidebar-styles-module"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link menu__list-item"><a class="menu__link" href="http://localhost:3000/docs/intro">RPTools Development Doctunation Intro</a></li><li class="theme-doc-sidebar-item-category menu__list-item"><a class="menu__link menu__link--sublist menu__link--active" href="http://localhost:3000/docs/networking/authentication#">networking</a><ul class="menu__list" style="display: block; overflow: visible; height: auto;"><li class="theme-doc-sidebar-item-link menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="http://localhost:3000/docs/networking/authentication">authentication</a></li></ul></li></ul></nav></div></aside><main class="docMainContainer_node_modules-@docusaurus-theme-classic-lib-next-theme-DocPage-styles-module"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_node_modules-@docusaurus-theme-classic-lib-next-theme-DocItem-styles-module"><div class="docItemContainer_node_modules-@docusaurus-theme-classic-lib-next-theme-DocItem-styles-module"><article><div class="theme-doc-markdown markdown"><header><h1>authentication</h1></header><div class="mermaid" data-processed="true"><div id="dmermaid-1632982973245" style="font-family: &quot;trebuchet ms&quot;, verdana, arial, sans-serif;"><svg id="mermaid-1632982973245" width="400" xmlns="http://www.w3.org/2000/svg" height="100" viewBox="768 0 512 512"><style>#mermaid-1632982973245 {font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#e0081a;}#mermaid-1632982973245 .error-icon{fill:hsl(220.5882352941, 100%, 98.3333333333%);}#mermaid-1632982973245 .error-text{fill:rgb(8.5000000002, 5.7500000001, 0);stroke:rgb(8.5000000002, 5.7500000001, 0);}#mermaid-1632982973245 .edge-thickness-normal{stroke-width:2px;}#mermaid-1632982973245 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1632982973245 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1632982973245 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1632982973245 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1632982973245 .marker{fill:#0b0b0b;stroke:#0b0b0b;}#mermaid-1632982973245 .marker.cross{stroke:#0b0b0b;}#mermaid-1632982973245 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1632982973245 .actor{stroke:hsl(40.5882352941, 60%, 83.3333333333%);fill:#fff4dd;}#mermaid-1632982973245 text.actor>tspan{fill:#333;stroke:none;}#mermaid-1632982973245 .actor-line{stroke:grey;}#mermaid-1632982973245 .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#e0081a;}#mermaid-1632982973245 .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#e0081a;}#mermaid-1632982973245 #arrowhead path{fill:#e0081a;stroke:#e0081a;}#mermaid-1632982973245 .sequenceNumber{fill:#f4f4f4;}#mermaid-1632982973245 #sequencenumber{fill:#e0081a;}#mermaid-1632982973245 #crosshead path{fill:#e0081a;stroke:#e0081a;}#mermaid-1632982973245 .messageText{fill:#e0081a;stroke:#e0081a;}#mermaid-1632982973245 .labelBox{stroke:hsl(40.5882352941, 60%, 83.3333333333%);fill:#fff4dd;}#mermaid-1632982973245 .labelText,#mermaid-1632982973245 .labelText>tspan{fill:#333;stroke:none;}#mermaid-1632982973245 .loopText,#mermaid-1632982973245 .loopText>tspan{fill:#333;stroke:none;}#mermaid-1632982973245 .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(40.5882352941, 60%, 83.3333333333%);fill:hsl(40.5882352941, 60%, 83.3333333333%);}#mermaid-1632982973245 .note{stroke:hsl(52.6829268293, 60%, 73.9215686275%);fill:#fff5ad;}#mermaid-1632982973245 .noteText,#mermaid-1632982973245 .noteText>tspan{fill:#333;stroke:none;}#mermaid-1632982973245 .activation0{fill:hsl(-79.4117647059, 100%, 93.3333333333%);stroke:hsl(-79.4117647059, 100%, 83.3333333333%);}#mermaid-1632982973245 .activation1{fill:hsl(-79.4117647059, 100%, 93.3333333333%);stroke:hsl(-79.4117647059, 100%, 83.3333333333%);}#mermaid-1632982973245 .activation2{fill:hsl(-79.4117647059, 100%, 93.3333333333%);stroke:hsl(-79.4117647059, 100%, 83.3333333333%);}#mermaid-1632982973245 .actor-man line{stroke:hsl(40.5882352941, 60%, 83.3333333333%);fill:#fff4dd;}#mermaid-1632982973245 .actor-man circle,#mermaid-1632982973245 line{stroke:hsl(40.5882352941, 60%, 83.3333333333%);fill:#fff4dd;stroke-width:2px;}#mermaid-1632982973245 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g></g><g><path class="error-icon" d="m411.313,123.313c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32-9.375,9.375-20.688-20.688c-12.484-12.5-32.766-12.5-45.25,0l-16,16c-1.261,1.261-2.304,2.648-3.31,4.051-21.739-8.561-45.324-13.426-70.065-13.426-105.867,0-192,86.133-192,192s86.133,192 192,192 192-86.133 192-192c0-24.741-4.864-48.327-13.426-70.065 1.402-1.007 2.79-2.049 4.051-3.31l16-16c12.5-12.492 12.5-32.758 0-45.25l-20.688-20.688 9.375-9.375 32.001-31.999zm-219.313,100.687c-52.938,0-96,43.063-96,96 0,8.836-7.164,16-16,16s-16-7.164-16-16c0-70.578 57.422-128 128-128 8.836,0 16,7.164 16,16s-7.164,16-16,16z"></path><path class="error-icon" d="m459.02,148.98c-6.25-6.25-16.375-6.25-22.625,0s-6.25,16.375 0,22.625l16,16c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688 6.25-6.25 6.25-16.375 0-22.625l-16.001-16z"></path><path class="error-icon" d="m340.395,75.605c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688 6.25-6.25 6.25-16.375 0-22.625l-16-16c-6.25-6.25-16.375-6.25-22.625,0s-6.25,16.375 0,22.625l15.999,16z"></path><path class="error-icon" d="m400,64c8.844,0 16-7.164 16-16v-32c0-8.836-7.156-16-16-16-8.844,0-16,7.164-16,16v32c0,8.836 7.156,16 16,16z"></path><path class="error-icon" d="m496,96.586h-32c-8.844,0-16,7.164-16,16 0,8.836 7.156,16 16,16h32c8.844,0 16-7.164 16-16 0-8.836-7.156-16-16-16z"></path><path class="error-icon" d="m436.98,75.605c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688l32-32c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32c-6.251,6.25-6.251,16.375-0.001,22.625z"></path><text class="error-text" x="1240" y="250" font-size="150px" style="text-anchor: middle;">Syntax error in graph</text><text class="error-text" x="1050" y="400" font-size="100px" style="text-anchor: middle;">mermaid version 8.13.2</text></g></svg></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/cwisniew/rptools-dev-doc/edit/main/docs/networking/authentication.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_node_modules-@docusaurus-theme-classic-lib-next-theme-IconEdit-styles-module" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_node_modules-@docusaurus-theme-classic-lib-next-theme-DocItemFooter-styles-module"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="http://localhost:3000/docs/intro"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« RPTools Development Doctunation Intro</div></a></div><div class="pagination-nav__item pagination-nav__item--next"></div></nav></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="http://localhost:3000/docs/intro">Documentation</a></li><li class="footer__item"><a href="https://wiki.rptools.info/" target="_blank" rel="noopener noreferrer" class="footer__link-item">End User Wiki</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items"><li class="footer__item"><a href="https://discord.gg/gevEtpC" target="_blank" rel="noopener noreferrer" class="footer__link-item"><span>Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a></li><li class="footer__item"><a href="https://www.reddit.com/r/MapTool/" target="_blank" rel="noopener noreferrer" class="footer__link-item"><span>Reddit<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a></li><li class="footer__item"><a href="https://forums.rptools.net/" target="_blank" rel="noopener noreferrer" class="footer__link-item"><span>Forums<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="http://localhost:3000/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/RPTools" target="_blank" rel="noopener noreferrer" class="footer__link-item"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Craig Wisniewski. Built with Docusaurus.</div></div></div></footer></div>
+    
+    
+  
+
+</body></html>

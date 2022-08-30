@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrptools_doc=self.webpackChunkrptools_doc||[]).push([[9726],{76879:t=>{t.exports=JSON.parse('{"label":"Authentication","permalink":"/pt-BR/blog/tags/authentication","allTagsPath":"/pt-BR/blog/tags","count":1}')}}]);

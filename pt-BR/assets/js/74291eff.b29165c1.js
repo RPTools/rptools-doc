@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrptools_doc=self.webpackChunkrptools_doc||[]).push([[5692],{72323:s=>{s.exports=JSON.parse('{"label":"Libraries","permalink":"/pt-BR/blog/tags/libraries","allTagsPath":"/pt-BR/blog/tags","count":3}')}}]);

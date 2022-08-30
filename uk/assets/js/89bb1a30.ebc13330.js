@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrptools_doc=self.webpackChunkrptools_doc||[]).push([[7648],{50627:e=>{e.exports=JSON.parse('{"label":"speech-bubble","permalink":"/uk/blog/tags/speech-bubble","allTagsPath":"/uk/blog/tags","count":1}')}}]);
